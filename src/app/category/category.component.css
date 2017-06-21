@@ -1,0 +1,10 @@
+.catemenu-list{
+        height: 315px;
+    overflow-y: auto;
+    width: 176px;
+}
+
+.list-style{
+    list-style: none;
+    cursor:pointer;
+}

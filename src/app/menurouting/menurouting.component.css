@@ -1,0 +1,11 @@
+.dine-img{
+       
+    background-repeat: no-repeat;
+    width: 97px;
+    height: 97px;
+        left: 0px;
+    right: 0px;
+    margin: auto;
+    cursor:pointer;
+    display: table;
+}

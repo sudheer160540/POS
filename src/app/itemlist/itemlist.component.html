@@ -1,0 +1,40 @@
+
+ 
+
+ <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="catemenu-list" *ngIf="selectedItem.length > 0">
+ 
+ <ul  *ngFor="let item of selectedItem"  class="list-style">
+  <li (click)="addItem(item)">{{item.name}}  {{item.onedayprice}} Rs/-</li>
+   
+ </ul>
+
+</div>
+<span *ngIf="selectedItem.length <= 0">No Items In Product</span>
+
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <table class="table">
+      <thead>
+        <tr>
+            <th>Sno</th>
+          <th>Item Name</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Total Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let itemBag of addItemList; let i = index" >
+        <td>{{i+1}}</td>
+          <td>{{itemBag.itemName}}</td>
+          <td>{{itemBag.quantity}}</td>
+          <td>{{itemBag.price}}</td>
+            <td>{{itemBag.totalprice}}</td>
+              <td><span class="glyphicon glyphicon-trash" (click)="removeItemBag(i)" aria-hidden="true"></span></td>
+        </tr>
+        
+      </tbody>
+    </table>
+</div>

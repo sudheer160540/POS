@@ -1,0 +1,11 @@
+<body>
+   <div class="login">
+	<h1 class="header-color">Login</h1>
+    <form method="post" (ngSubmit)="loginSubmit()" >
+    	<input type="text" [(ngModel)]="user.email" name="u" placeholder="Username" required="required" />
+        <input type="password"[(ngModel)]="user.password" name="p" placeholder="Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+    </form>
+</div>
+</body>
+ 
