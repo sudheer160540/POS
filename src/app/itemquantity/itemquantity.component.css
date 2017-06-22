@@ -1,0 +1,15 @@
+.bg-screen{
+    border: 1px solid #A9A6A6;
+    box-shadow: 0 0 8px #ccc;
+    -moz-box-shadow: 0 0 8px #ccc;
+    -webkit-box-shadow: 0 0 8px #ccc;
+    background-color: #fff;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    position: absolute;
+    margin: 2px auto;
+    left: 0;
+    right: 0;
+    min-height: 550px;
+}

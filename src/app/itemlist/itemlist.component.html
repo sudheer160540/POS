@@ -1,40 +1,77 @@
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+  <div class="catemenu-list" *ngIf="selectedItem.length > 0">
 
- 
+    <ul *ngFor="let item of selectedItem" class="list-style heroes">
+      <li (click)="addItem(item)">{{item.name}}   <span class="badge">{{item.onedayprice}}</span></li>
 
- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-<div class="catemenu-list" *ngIf="selectedItem.length > 0">
- 
- <ul  *ngFor="let item of selectedItem"  class="list-style">
-  <li (click)="addItem(item)">{{item.name}}  {{item.onedayprice}} Rs/-</li>
-   
- </ul>
+    </ul>
 
-</div>
-<span *ngIf="selectedItem.length <= 0">No Items In Product</span>
+  </div>
+  <span *ngIf="selectedItem.length <= 0">No Items In Product</span>
 
 </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-    <table class="table">
-      <thead>
-        <tr>
-            <th>Sno</th>
-          <th>Item Name</th>
-          <th>Qty</th>
-          <th>Price</th>
-          <th>Total Price</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let itemBag of addItemList; let i = index" >
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sno</th>
+        <th>Item Name</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Total Price</th>
+        <th>Action</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let itemBag of addItemList; let i = index">
         <td>{{i+1}}</td>
-          <td>{{itemBag.itemName}}</td>
-          <td>{{itemBag.quantity}}</td>
-          <td>{{itemBag.price}}</td>
-            <td>{{itemBag.totalprice}}</td>
-              <td><span class="glyphicon glyphicon-trash" (click)="removeItemBag(i)" aria-hidden="true"></span></td>
-        </tr>
-        
-      </tbody>
-    </table>
-</div>
+        <td>{{itemBag.itemName}}</td>
+        <td>{{itemBag.quantity}}</td>
+        <td>{{itemBag.price}}</td>
+        <td>{{itemBag.totalprice}}</td>
+        <td>
+          <table class="width90">
+            <tbody>
+              <tr>
+                <td><img src="https://demo.orderbl.com/icons/increase_icon_32.png" id="decitem" name="decitem" value="decitem"
+                    (click)="itemQtyIncr(itemBag)" role="button" tabindex="0"></td>
+                <td class="txt-center roboto-medium">
+                  1
+                </td>
+                <td><img src="https://demo.orderbl.com/icons/decrease_icon_32.png" id="incitem" name="incitem" value="incitem"
+                    class="f-right" (click)="itemQtyDec(itemBag,i)" role="button" tabindex="0"></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td><span class="glyphicon glyphicon-trash" (click)="removeItemBag(i)" aria-hidden="true"></span></td>
+      </tr>
+
+    </tbody>
+  </table>
+  <div calss=row *ngIf="addItemList.length>0">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        Total <br>
+       {{subAmount}}
+      </div>
+       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+         Tax<br>
+       0.00
+      </div>
+       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+         Discount <br>
+       0.00
+      </div>
+       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+         Grand Total <br>
+       {{subAmount}}
+      </div>
+       
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+  <a class="btn btn-primary" [routerLink]="['/orderSumm']" (click)="placeOrder()">PLACE THE ORDER</a>
+    </div>
+  </div>
+  
