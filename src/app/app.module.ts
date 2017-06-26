@@ -11,6 +11,7 @@ import { OrdermenuComponent } from './ordermenu/ordermenu.component';
 import { CategoryComponent } from './category/category.component';
 import { ItemlistComponent } from './itemlist/itemlist.component';
 import { ItemquantityComponent } from './itemquantity/itemquantity.component';
+import {AuthManager} from './userlogin/userlogin.auth';
 export const firebaseConfig={
   apiKey:'',
   authDomain:'',
@@ -35,7 +36,7 @@ export const firebaseConfig={
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [AuthManager],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

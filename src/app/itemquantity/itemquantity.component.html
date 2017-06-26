@@ -5,58 +5,47 @@
 <table class="table">
       <thead>
         <tr>
-          <th>Item Name</th>
-          <th>Qty</th>
-          <th>Price</th>
+          <th>Sno</th>
+          <th>Sub Amount</th>
+          <th>Discount Amount</th>
+          <th>Grand Total</th>
+           <th>View</th>
         </tr>
       </thead>
     
       <tbody>
-        <tr>
-          <td>Rice</td>
-          <td>1</td>
-          <td>80</td>
+        <tr *ngFor='let orderlist of orderList let i=index'>
+          <td>{{i+1}}</td>
+          <td>{{orderlist.subTotal}} <i class="icon-inr"></i> </td>
+           <td>0.00 <i class="icon-inr"></i></td>
+          <td>{{orderlist.grandTotal}} <i class="icon-inr"></i></td>
+           <td class="curos-pointer" (click)='viewItems(orderlist.items)'><img height="20px" width="25px" src="https://cdn2.iconfinder.com/data/icons/mini-icon-set-2/16/view-128.png"/></td>
         </tr>
-        <tr>
-          <td>Dall</td>
-          <td>2</td>
-          <td>40</td>
-        </tr>
-        <tr>
-          <td>Biryani</td>
-          <td>1</td>
-          <td>150</td>
-        </tr>
+       
       </tbody>
     </table>
   </div>
    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-    <table class="table">
+    <table class="table" id="print-section">
       <thead>
         <tr>
           <th>Item Name</th>
-          <th>Qty</th>
           <th>Price</th>
+          <th>Quantity</th>
+            <th>Total Amount</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Rice</td>
-          <td>1</td>
-          <td>80</td>
+        <tr *ngFor='let viewmore of viewmoreItems let i=index' >
+          <td>{{viewmore.itemName}}</td>
+          <td>{{viewmore.price}}</td>
+          <td>{{viewmore.quantity}}</td>
+             <td>{{viewmore.totalprice}}</td>
         </tr>
-        <tr>
-          <td>Dall</td>
-          <td>2</td>
-          <td>40</td>
-        </tr>
-        <tr>
-          <td>Biryani</td>
-          <td>1</td>
-          <td>150</td>
-        </tr>
+       
       </tbody>
     </table>
+    <button (click)="print()">Print</button>
   </div>
 </div>
     

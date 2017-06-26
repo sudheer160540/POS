@@ -8,7 +8,8 @@ export class OrderSummery{
 
     }
      getOrderList(){
-      return  this.http.get(`http://139.162.27.63:5767/api/Customers`).map((res:Response)=>res.json());
+      return  this.http.get(`http://139.162.27.63:5767/api/MealTastes`).map((res:Response)=>res.json());
     }
+    
 
 }
